@@ -31,3 +31,76 @@ body {
     text-wrap: balance;
   }
 }
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: .25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-pulse::before {
+  left: -15px;
+  width: 10px; 
+  height: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(.3);
+    opacity: .2;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    transform: scale(.3);
+    opacity: .2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(.3);
+    opacity: .2;
+  }
+}
